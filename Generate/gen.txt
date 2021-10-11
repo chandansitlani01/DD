@@ -1,0 +1,32 @@
+  
+  #text encoded and padded
+def one_hot(x):
+  x3d=np.zeros((x.shape[0], x.shape[1], len(voc)+1))
+  for i in range(x.shape[0]):
+    for j in range(x.shape[1]):
+      x3d[i][j][x[i][j]]=1
+  
+  return x3d
+
+def predict(st):
+  init=st
+  #init="O)N[C@H]2CCN(c3ccccc3)CC2)CC1EE"
+  init=list(init)
+
+  for i in range(30):
+    init[i]=voc[init[i]]
+
+  init=np.array(init)
+  init=np.expand_dims(init, axis=0)
+  #x=tf.keras.preprocessing.sequence.pad_sequences([init], maxlen=60)
+  x=one_hot(init)
+  p=model.predict(x)
+  pred=sample(p, 0.4)
+
+
+  return cov[pred]
+  
+
+
+xo=one_hot(np.array(seq))
+xo
