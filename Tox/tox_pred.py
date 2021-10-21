@@ -28,13 +28,19 @@ def predict(d):
   p=x_train=tf.keras.preprocessing.sequence.pad_sequences(e, 210)
   oh=one_hot(p)
   pred=model.predict(oh)
-  p=np.argmax(pred, axis=-1)
+  p=1 if pred[0][1]>=0.6 else 0
   return p
 
 with open("input/gen.txt", "r") as f:
 	mol=f.read()
 
 mols=mol.split("\n")
+op=[]
 for mol in mols:
 	t=predict(mol)
-	print(mol+" : "+str(t[0]))
+	print(mol+" : "+str(t))
+	if t==1:
+		op.append(mol)
+
+with open("output/output.txt", "w") as f:
+	f.write("\n".join(op))
