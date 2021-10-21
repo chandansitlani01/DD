@@ -3,4 +3,4 @@ numpy
 pandas
 PyTDC
 rdkit-pypi
-sklearn
+streamlit
