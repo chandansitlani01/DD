@@ -10,6 +10,7 @@ class DTI:
 	
 	def __init__(self):
 		self.model=tf.keras.models.load_model("DTI/models-082.h5")
+		self.outs=[]
 
 		with open("DTI/voc_DTI_D.json", 'r') as f:
 			self.voc=json.load(f)
@@ -89,11 +90,20 @@ class DTI:
 		for mol in mols:
 			p, pre = self.pred(mol, t)
 			if p[0]==1:
-				op.append(mol)
-				print("Found "+mol)
+				if len(mol)>0:
+					op.append(mol)
+					print("Found "+mol+str(len(mol)))
+				else:
+					print("None Mol")
 
+		if len(op)>0:
+			self.outs=self.outs+op
 		with open("DTI/output/out.txt", "a") as f:
-			f.write("\n".join(op))
+			
+			if len(op)>0:
+				f.write("\n".join(op))
+				f.write("\n")
+				
 		print("Done, found "+str(len(op))+" molecules out of "+str(len(mols)) )
 		
 #dti=DTI()

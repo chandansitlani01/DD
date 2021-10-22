@@ -43,10 +43,14 @@ class Tox:
 		mols=mol.split("\n")
 		op=[]
 		for mol in mols:
-			t=self.predict(mol)
-			print(mol+" : "+str(t))
-			if t==1:
-				op.append(mol)
+			if len(mol)>0:
+				t=self.predict(mol)
+				print(mol+" : "+str(t))
+				if t==1:
+					op.append(mol)
+			
+			else:
+				print("Invalid Mol")
 
 		with open("Tox/output/output.txt", "w") as f:
 			f.write("\n".join(op))

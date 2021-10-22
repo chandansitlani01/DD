@@ -59,7 +59,7 @@ class Generate:
 	
 	def generate(self):
 		string="cccccccccccccccccccccEEccc1O=S"
-		n=200
+		n=700
 		s=time.time()
 		for i in range(n):
 			temp=string[-30:]
@@ -79,13 +79,17 @@ class Generate:
 			try:
 				m=Chem.MolFromSmiles(mol)	
 				if m is not None:
-					valid.append(mol)
+					if len(mol)>0:
+						valid.append(mol)
+					else:
+						print("Inv Mol")
 			except:
 				inv+=1
 		print(len(valid), len(mols))
 		valids="\n".join(valid)
 		with open("Generate/output/generated.txt", "w") as f:
-			f.write(valids)
+			if len(valid)>0:
+				f.write(valids)
 		
 #gen=Generate()
 #gen.generate()
