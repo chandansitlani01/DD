@@ -5,6 +5,8 @@ from DTI.dti_pred import DTI
 
 import streamlit as st
 import time
+import shutil
+
 
 
 st.title("Drug Discovery")
@@ -13,6 +15,8 @@ n_iterations=int(n_iterations)
 n_iterations+=2
 t=st.text_input("Enter Target Sequence")
 
+
+shutil.copy("DTI/output.output.txt", "DTI/output/temp/out-"+time.time())
 
 tem=0.7
 gen=Generate(tem)
