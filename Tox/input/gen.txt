@@ -1,2 +1,0 @@
-Cc1ccc(C(C)C)cc1C(=O)Nc1ccccc1Cl
-CC[C@H](S)C(=O)N[C@@H](C)c1ccccc1Cl

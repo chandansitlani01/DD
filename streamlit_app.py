@@ -6,6 +6,7 @@ from DTI.dti_pred import DTI
 import streamlit as st
 import time
 import shutil
+import datetime
 
 
 
@@ -16,7 +17,7 @@ n_iterations+=2
 t=st.text_input("Enter Target Sequence")
 
 
-shutil.copy("DTI/output.output.txt", "DTI/output/temp/out-"+time.time())
+shutil.copy("DTI/output/out.txt", "DTI/output/temp/out-"+str(datetime.datetime.now()))
 
 tem=0.7
 gen=Generate(tem)
