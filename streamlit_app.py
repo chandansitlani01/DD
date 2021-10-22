@@ -84,8 +84,10 @@ if st.button("Run"):
 		e=time.time()
 		m=len(dtio) if len(dtio[0])>0 else 0
 		st.text("Generated Molecules : "+str(len(geno)))
-		st.text("Non Toxic Molecules : "+str(len(toxo)))
-		st.text("Final Molecules : "+str(m))
+		if i>0:
+			st.text("Non Toxic Molecules : "+str(len(toxo)))
+		if i>1:
+			st.text("Final Molecules : "+str(m))
 		st.text("Time Taken : "+str(round(e-s, 2)))
 		st.text(" ")
 		st.text(" ")
