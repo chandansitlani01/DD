@@ -8,7 +8,8 @@ import time
 import shutil
 import datetime
 
-from rdkit.Chem import MolFromSmiles, Draw
+from rdkit.Chem import MolFromSmiles
+from rdkit.Chem.Draw import MolsToGridImage
 import os
 
 
@@ -26,7 +27,7 @@ with col3:
 	if mol is None:
 		st.text("Invalid Molecule")
 	else:
-		img=Draw.MolsToGridImage([mol])
+		img=MolsToGridImage([mol])
 		st.image(img)
 with col1:
 	st.title("Drug Discovery")
