@@ -4,4 +4,3 @@ pandas
 PyTDC
 rdkit-pypi
 streamlit
-rdkit
