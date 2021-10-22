@@ -18,9 +18,9 @@ n_iterations=int(n_iterations)
 n_iterations+=2
 t=st.text_input("Enter Target Sequence")
 
-
-shutil.copy("DTI/output/out.txt", "DTI/output/temp/out-"+str(datetime.datetime.now()))
-os.remove("DTI/output/out.txt")
+if os.path.exists("DTI/output/out.txt"):
+	shutil.copy("DTI/output/out.txt", "DTI/output/temp/out-"+str(datetime.datetime.now()))
+	os.remove("DTI/output/out.txt")
 tem=0.7
 gen=Generate(tem)
 tox=Tox()
