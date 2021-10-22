@@ -8,6 +8,8 @@ import time
 import shutil
 import datetime
 
+import os
+
 
 
 st.title("Drug Discovery")
@@ -18,7 +20,7 @@ t=st.text_input("Enter Target Sequence")
 
 
 shutil.copy("DTI/output/out.txt", "DTI/output/temp/out-"+str(datetime.datetime.now()))
-
+os.remove("DTI/output/out.txt")
 tem=0.7
 gen=Generate(tem)
 tox=Tox()

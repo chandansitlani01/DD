@@ -22,7 +22,10 @@ class DTI:
 		r2=row
 		for i in range(len(row)):
 			if row[i] in self.voc.keys():
-					r2[i]=self.voc[row[i]]
+					try:
+						r2[i]=self.voc[row[i]]
+					except:
+						r2[i]=0
 			else:
 					r2[i]=0
 		return r2
@@ -30,7 +33,10 @@ class DTI:
 	def encode_t(self, row):
 		r2=row
 		for i in range(len(row)):
-			r2[i]=self.voc_t[row[i]]
+			try:
+				r2[i]=self.voc_t[row[i]]
+			except:
+				r2[i]=0
 		return r2
 
 	
