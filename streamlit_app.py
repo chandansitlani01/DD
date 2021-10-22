@@ -17,8 +17,7 @@ n_iterations=st.text_input("Enter no. of Iterations", value=7, help="No of itera
 n_iterations=int(n_iterations)
 n_iterations+=2
 t=st.text_input("Enter Target Sequence")
-if os.path.exists("DTI/output/out.txt"):
-	open("DTI/output/out.txt", "w").truncate(0)
+
 tem=0.7
 gen=Generate(tem)
 tox=Tox()

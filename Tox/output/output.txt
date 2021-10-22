@@ -1,1 +1,2 @@
-C[C@@H](NC(=O)C(=O)Nc1ccccc1)C1CC1
+C[C@@H]1CCC[C@@H](CCNC(=O)CSC[C@@H]2CCO[C@@H]2C)cc1
+CCCC[C@@H]1CCC(=O)N(CCc2ccnn2C)C1
