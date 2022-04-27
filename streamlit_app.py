@@ -19,6 +19,13 @@ import os
 st.set_page_config(page_title="Drug Discovery", layout="wide", page_icon="logo.png")
 col1, col2, col3 = st.columns([12, 3, 7])
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 open("DTI/output/out.txt", "w").close()
 with col3:
 	st.title("Draw Molecule")
